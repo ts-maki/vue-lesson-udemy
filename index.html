@@ -10,40 +10,19 @@
 
 <body>
     <div id="app">
-        <h1>{{ title }}</h1>
-        <h2>Price: ${{ price - 1 }}</h2>
-        <button @click="increment">ボタン</button>
-        <h2>Students: {{ info.students }}</h2>
-        <h2>Instructor age: {{ instructor.age }}</h2>
+        <h1>{{ count + count2 }}</h1>
+        <h1>{{ count > 3 ? 'Yes' : 'No' }}</h1>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const title = ref('Vue.js!!!!');
-                let price = ref(9.99);
-                const info = ref({
-                    students: 1000,
-                    rating: 4,
-                });
-                const instructor = reactive({
-                    name: 'Yoshipi',
-                    age: 25,
-                });
-                console.log(instructor.name);
-                console.log(price);
-                const increment = () => {
-                    price.value += 1
-                    instructor.age += 1;
-                    console.log(price.value);
-                }
+                const count = ref(2);
+                const count2 = ref(4);
                 return {
-                    title,
-                    price,
-                    increment,
-                    info,
-                    instructor
+                    count,
+                    count2,
                 }
             }
         }).mount('#app')
