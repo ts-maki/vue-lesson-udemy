@@ -19,11 +19,17 @@
 
         createApp({
             setup() {
-
-                const title = 'Vue.js Course';
-                let price = 9.99;
+                let a = 1;
+                let b = 2;
+                let c = a + b // C = 3
+                a = 4;
+                console.log(c);
+                const title = 'Vue.js!!!!';
+                let price = ref(9.99);
+                console.log(price);
                 const increment = () => {
-                    console.log('クリック');
+                    price.value += 1
+                    console.log(price.value);
                 }
                 return {
                     title,
