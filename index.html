@@ -15,7 +15,7 @@
         <h1 v-html="message"></h1>
         <a  :id="vueId" :href="vueURL">Vue.js</a>
         <button @click="count++">button</button>
-        <button @click="countUp">button</button>
+        <button @click="countUp($event, 5)">button</button>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
@@ -27,8 +27,8 @@
                 const message = ref('<h1>やあ</h1>');
                 const vueURL = ref('https://vuejs.org');
                 const vueId = ref('vue-link');
-                const countUp = (event) => {
-                    count.value = event.clientX;
+                const countUp = (event, times) => {
+                    count.value = event.clientX * 5;
                 }
                 return {
                     count,
