@@ -13,6 +13,7 @@
         <h1>{{ count + count2 }}</h1>
         <h1>{{ count > 3 ? 'Yes' : 'No' }}</h1>
         <h1 v-html="message"></h1>
+        <a  :id="vueId" :href="vueURL">Vue.js</a>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
@@ -21,11 +22,15 @@
             setup() {
                 const count = ref(2);
                 const count2 = ref(4);
-                const message = ref('<h1>Hello</h1>')
+                const message = ref('<h1>Hello</h1>');
+                const vueURL = ref('https://vuejs.org');
+                const vueId = ref('vue-link');
                 return {
                     count,
                     count2,
                     message,
+                    vueURL,
+                    vueId
                 }
             }
         }).mount('#app')
