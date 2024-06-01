@@ -1,6 +1,4 @@
-import './assets/main.css'
-
-import { createApp } from 'vue'
-import App from './App.vue'
-
-createApp(App).mount('#app')
+// import { createApp } from "vue";
+// import  App  from "./App.vue";
+// const app = createApp(App); // vueコンポーネント作成
+// app.mount('#app'); // Vueコンポーネントを#appに挿入
