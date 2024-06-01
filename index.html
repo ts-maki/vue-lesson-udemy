@@ -12,6 +12,7 @@
     <div id="app">
         <h1>{{ count + count2 }}</h1>
         <h1>{{ count > 3 ? 'Yes' : 'No' }}</h1>
+        <h1 v-text="count"></h1>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
