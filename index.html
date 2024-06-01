@@ -16,6 +16,7 @@
         <a  :id="vueId" :href="vueURL">Vue.js</a>
         <button @click="count++">button</button>
         <button @click="countUp($event, 5)">button</button>
+        <a href="https://vuejs.org" @click="$event.preventDefault()">Vue.js</a>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
