@@ -10,20 +10,23 @@
 
 <body>
     <div id="app">
-        <a href="https://vuejs.org" @click="$event.preventDefault()">Vue.js</a>
-        <p>{{ count }}</p>
-        <div @click="count++">
-            <button @click.stop="">button</button>
-        </div>
+        <p>{{ score }}</p>
+        <p>{{ evaluation }}</p>
+        <button @click="score++">+1</button>
     </div>
     <script type="module">
-        import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
+        import { createApp, reactive, ref, computed } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const count = ref(0);
+                const score = ref(0);
+                const evaluation = computed(() => {
+                    return score.value > 3 ? 'Good' : 'Bad'
+                })
+                console.log(evaluation.value);
                 return {
-                    count
+                    score,
+                    evaluation,
                 }
             }
         }).mount('#app')
