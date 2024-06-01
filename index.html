@@ -10,16 +10,25 @@
 
 <body>
     <div id="app">
-        <h1>{{ message }}</h1>
+        <h1>{{ title }}</h1>
+        <h2>Price: ${{ price - 1 }}</h2>
+        <button @click="increment">ボタン</button>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const message = ref('Hello World!')
+
+                const title = 'Vue.js Course';
+                let price = 9.99;
+                const increment = () => {
+                    console.log('クリック');
+                }
                 return {
-                    message
+                    title,
+                    price,
+                    increment
                 }
             }
         }).mount('#app')
