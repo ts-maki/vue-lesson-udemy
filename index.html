@@ -27,8 +27,8 @@
                 const message = ref('<h1>やあ</h1>');
                 const vueURL = ref('https://vuejs.org');
                 const vueId = ref('vue-link');
-                const countUp = () => {
-                    count.value++
+                const countUp = (event) => {
+                    count.value = event.clientX;
                 }
                 return {
                     count,
