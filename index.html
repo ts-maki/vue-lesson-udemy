@@ -10,34 +10,20 @@
 
 <body>
     <div id="app">
-        <h1>{{ count + count2 }}</h1>
-        <h1>{{ count > 3 ? 'Yes' : 'No' }}</h1>
-        <h1 v-html="message"></h1>
-        <a  :id="vueId" :href="vueURL">Vue.js</a>
-        <button @click="count++">button</button>
-        <button @click="countUp($event, 5)">button</button>
         <a href="https://vuejs.org" @click="$event.preventDefault()">Vue.js</a>
+        <p>{{ count }}</p>
+        <div @click="count++">
+            <button @click.stop="">button</button>
+        </div>
     </div>
     <script type="module">
         import { createApp, reactive, ref } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const count = ref(2);
-                const count2 = ref(4);
-                const message = ref('<h1>やあ</h1>');
-                const vueURL = ref('https://vuejs.org');
-                const vueId = ref('vue-link');
-                const countUp = (event, times) => {
-                    count.value = event.clientX * 5;
-                }
+                const count = ref(0);
                 return {
-                    count,
-                    count2,
-                    message,
-                    vueURL,
-                    vueId,
-                    countUp
+                    count
                 }
             }
         }).mount('#app')
