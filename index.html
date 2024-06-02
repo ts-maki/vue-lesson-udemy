@@ -11,24 +11,22 @@
 <body>
     <div id="app">
         <p>{{ count }}</p>
-        <button @click="count++">+1</button>
+        <button @click="ok = !ok">toggle</button>
+        <template v-if="ok">
+            <p>OK!</p>
+            <p>Hello</p>
+            <p>Hi</p>
+        </template>
     </div>
     <script type="module">
-        import { createApp, reactive, ref, computed, watchEffect } from 'vue/dist/vue.esm-bundler.js'
+        import { createApp, reactive, ref, computed, watchEffect, watch } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
                 const count = ref(0);
-                watchEffect(() => {
-                    // computedと同じ動き
-                    console.log('watchEffect');
-                    console.log(count.value);
-                    setTimeout(() => {
-                        console.log('after 1 second');
-                    }, 1000);
-                })
+                const ok = ref(true);
                 return {
-                    count,
+                    ok,
                 }
             }
         }).mount('#app')
