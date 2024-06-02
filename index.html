@@ -13,7 +13,7 @@
         <p>{{ count }}</p>
         <button @click="fruits.shift()">button</button>
         <ul>
-            <li v-for="(fruit, index) in fruits" :key="fruit.id"><input type="text" name="" id="">{{ fruit.name }}</li>
+            <li v-for="({id, name}, index) in fruits" :key="id"><input type="text" name="" id="">{{ name }}({{ index }})</li>
         </ul>
     </div>
     <script type="module">
