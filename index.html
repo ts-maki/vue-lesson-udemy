@@ -10,27 +10,20 @@
 
 <body>
     <div id="app">
-        <p>{{ count }}</p>
-        <button @click="fruits.shift()">button</button>
-        <template v-for="({id, name}, index) in fruits" :key="id"><input type="text" name="" id="">
-            <template v-if="id ===2">
-                <p>id:{{ id }}</p>
-            </template>
-        </template>
+        <p v-for="(item, index) in user" :key="item">{{ index }}: {{ item }}</p>
     </div>
     <script type="module">
         import { createApp, reactive, ref, computed, watchEffect, watch } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const fruits = ref([
-                    { id: 1, name: 'Apple' },
-                    { id: 2, name: 'Apple' },
-                    { id: 3, name: 'Banana' },
-                    { id: 4, name: 'Grape' },
-                ]);
+                const user = ref({
+                    name: 'Yoshipi',
+                    age: 25,
+                    gender: 'man'
+                })
                 return {
-                    fruits,
+                    user
                 }
             }
         }).mount('#app')
