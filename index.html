@@ -10,20 +10,14 @@
 
 <body>
     <div id="app">
-        <p v-for="(item, index) in user" :key="item">{{ index }}: {{ item }}</p>
+        <p v-for="(n, index) in 10" :key="index">{{ index }} {{ n }}</p>
     </div>
     <script type="module">
         import { createApp, reactive, ref, computed, watchEffect, watch } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const user = ref({
-                    name: 'Yoshipi',
-                    age: 25,
-                    gender: 'man'
-                })
                 return {
-                    user
                 }
             }
         }).mount('#app')
