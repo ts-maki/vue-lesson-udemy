@@ -10,23 +10,25 @@
 
 <body>
     <div id="app">
-        <p>{{ score }}</p>
-        <p>{{ evaluation }}</p>
-        <button @click="score++">+1</button>
+        <p>{{ count }}</p>
+        <button @click="count++">+1</button>
     </div>
     <script type="module">
-        import { createApp, reactive, ref, computed } from 'vue/dist/vue.esm-bundler.js'
+        import { createApp, reactive, ref, computed, watchEffect } from 'vue/dist/vue.esm-bundler.js'
 
         createApp({
             setup() {
-                const score = ref(0);
-                const evaluation = computed(() => {
-                    return score.value > 3 ? 'Good' : 'Bad'
+                const count = ref(0);
+                watchEffect(() => {
+                    // computedと同じ動き
+                    console.log('watchEffect');
+                    console.log(count.value);
+                    setTimeout(() => {
+                        console.log('after 1 second');
+                    }, 1000);
                 })
-                console.log(evaluation.value);
                 return {
-                    score,
-                    evaluation,
+                    count,
                 }
             }
         }).mount('#app')
